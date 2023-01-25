@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ miembro.nombre }} {{ miembro.apellido }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ miembro.nombre }} {{ miembro.apellido }}</h1>
+    {% if miembro.correo %}
+        <p>correo {{ miembro.correo }}</p>
+        <p>Se unió en: {{ miembro.fecha_registro }}</p>
+    {% else %}
+        <p> Este usuario no tiene correo asociado, ¿deseas registrarlo?</p>
+        <button type="button">Registrar Usuario</button>
+    {% endif %}
+  
+  
+  <p>Back to <a href="/miembros">Miembros</a></p>
+  
+{% endblock %}
