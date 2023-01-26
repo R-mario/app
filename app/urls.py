@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+# / --> pagina principal (no funciona)
+# /admin/ --> administración
+# /members/ --> página principal de miembros
+# /creatures/ --> página principal de creatures
+
 urlpatterns = [
     path('', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('members/', include('members.urls')),
+    path('miembros/', include('members.urls')),
     path('creatures/',include('creatures.urls'))
 ]

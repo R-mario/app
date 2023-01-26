@@ -17,7 +17,7 @@ def todos_miembros(request):
     return HttpResponse(template.render(contexto, request))
 
 def main(request):
-    template = loader.get_template('main.html')
+    template = loader.get_template('main_members.html')
     return HttpResponse(template.render())
 
 def testing(request):
