@@ -2,4 +2,7 @@
 
 Learning Django web Framework
 
-- Currently working on 'members' app
+- Currently working on 'creatures' app
+
+todo:
+- create some "main" page (localhost/)
