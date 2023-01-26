@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = ["https://r-mario-probable-winner-456gr574xq2qv4j-8000.preview.app.github.dev",]
 
 # Application definition
 
