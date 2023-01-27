@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # run on github codespaces [remove later as this may suppose a security risk]
-CSRF_TRUSTED_ORIGINS = [r"https://r-mario-.*",]
+CSRF_TRUSTED_ORIGINS = [r"https://r-mario.^\/*","https://r-mario-turbo-spoon-xqw7gjgg95736j7v-8000.preview.app.github.dev"]
 
 # Application definition
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'encuestas.apps.EncuestasConfig',
     'members',
     'polls',
     'creatures'
