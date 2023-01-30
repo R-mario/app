@@ -1,0 +1,10 @@
+{% extends "master.html" %}
+
+{% block content %}
+<h1>{{ pregunta.pregunta_texto }}</h1>
+<ul>
+{% for eleccion in pregunta.choice_set.all %}
+    <li>{{ eleccion.eleccion_texto }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

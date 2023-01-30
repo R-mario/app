@@ -1,0 +1,19 @@
+{% extends "master.html" %}
+
+{% block title %}Encuestas - main{% endblock %}
+<p>aa</p>
+ {% block content %}
+
+    {% if lista_preguntas %}
+        <ul>
+        {% for pregunta in lista_preguntas %}
+            <li>
+                <a href="{% url 'encuestas:detalle' pregunta.id %}">{{ pregunta.pregunta_texto }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay encuestas disponibles.</p>
+    {% endif %}
+
+{% endblock %}
