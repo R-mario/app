@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = ["https://r-mario-probable-winner-456gr574xq2qv4j-8000.preview.app.github.dev",]
+# run on github codespaces [remove later as this may suppose a security risk]
+CSRF_TRUSTED_ORIGINS = [r"https://r-mario.^\/*","https://r-mario-turbo-spoon-xqw7gjgg95736j7v-8000.preview.app.github.dev"]
 
 # Application definition
 
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'encuestas.apps.EncuestasConfig',
     'members',
     'polls',
     'creatures'
@@ -58,7 +61,7 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'], # main template page
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +73,11 @@ TEMPLATES = [
         },
     },
 ]
+
+# for css/js files on static [not implemented]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
