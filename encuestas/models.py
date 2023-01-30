@@ -9,7 +9,7 @@ class Pregunta(models.Model):
     fecha_pub = models.DateTimeField('fecha de publicación')
 
     def publicada_recientemente(self):
-        return self.fecha_pub >= timezone.now() - datetime.timedelta(days=1)
+        return timezone.now() - datetime.timedelta(days =1)<= self.fecha_pub <= timezone.now()
     
     def __str__(self):
         return self.pregunta_texto
