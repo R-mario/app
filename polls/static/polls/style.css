@@ -1,9 +1,13 @@
 
 body {
-  background-color: #057c8f;
+  background-color: #0d6e61e5;
   color: #ffffff;
-}
 
+}
+.content{
+  max-width: 500px;
+  margin: auto;
+}
 .container {
   text-align: center;
   margin-top: 50px;
@@ -19,6 +23,7 @@ body {
   #back{
     margin-top: 40px;
   }
-  li a {
-    color: green;
+h1{
+  margin: 20px;
+  text-align: center;
 }

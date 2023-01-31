@@ -2,7 +2,7 @@
 
 Learning Django web Framework
 
-- Currently working on 'creatures' app
+- Currently working on 'encuestas' app
 
 todo:
 - create some "main" page (localhost/)

@@ -3,12 +3,12 @@
 {% block content %}
 <h1>{{ pregunta.pregunta_texto }}</h1>
 
-<ul>
+<ul class="list-group">
 {% for el in pregunta.choice_set.all %}
-    <li>{{ el.eleccion_texto }} -- {{ el.votos }} voto{{ el.votos|pluralize }}</li>
+    <li class="list-group-item">{{ el.eleccion_texto }}: {{ el.votos }} voto{{ el.votos|pluralize }}</li>
 {% endfor %}
 </ul>
 
-<a href="{% url 'encuestas:detalle' pregunta.id %}">¿Votar de nuevo?</a>
+<a href="{% url 'encuestas:detalle' pregunta.id %}" class="btn btn-info btn-sm">¿Votar de nuevo?</a>
 
 {% endblock %}

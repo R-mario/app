@@ -2,15 +2,13 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'encuestas/style.css' %}">
 {% block title %}Encuestas - main{% endblock %}
-<p>aa</p>
  {% block content %}
-
+<h1>Listado de encuestas</h1>
     {% if lista_preguntas %}
-        <ul>
+        <div class="list-group">
         {% for pregunta in lista_preguntas %}
-            <li>
-                <a href="{% url 'encuestas:detalle' pregunta.id %}">{{ pregunta.pregunta_texto }}</a>
-            </li>
+            <a href="{% url 'encuestas:detalle' pregunta.id %}"
+            class="list-group-item list-group-item-action">{{ pregunta.pregunta_texto }}</a>
         {% endfor %}
         </ul>
     {% else %}
