@@ -17,6 +17,7 @@ class Pregunta(models.Model):
     )
     def publicada_recientemente(self):
         return timezone.now() - datetime.timedelta(days =1)<= self.fecha_pub <= timezone.now()
+
     
     def __str__(self):
         return self.pregunta_texto

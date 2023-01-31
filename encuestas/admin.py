@@ -22,3 +22,4 @@ class PreguntaAdmin(admin.ModelAdmin):
 
 admin.site.register(Pregunta, PreguntaAdmin)
 # admin.site.register(Choice)
+
