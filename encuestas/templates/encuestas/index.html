@@ -3,7 +3,8 @@
 <link rel="stylesheet" href="{% static 'encuestas/style.css' %}">
 
 {% block title %}Encuestas - main{% endblock %}
- {% block content %}
+
+{% block content %}
 <h1>Listado de encuestas</h1>
     {% if lista_preguntas %}
         <div class="list-group">
@@ -11,7 +12,7 @@
             <a href="{% url 'encuestas:detalle' pregunta.id %}"
             class="list-group-item list-group-item-action">{{ pregunta.pregunta_texto }}</a>
         {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <p>No hay encuestas disponibles.</p>
     {% endif %}

@@ -27,3 +27,7 @@ h1{
   margin: 20px;
   text-align: center;
 }
+footer{
+  border-top-style: solid;
+  border-top-width: 1px;
+}
