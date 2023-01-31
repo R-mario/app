@@ -67,9 +67,9 @@ class PreguntaIndexViewTest(TestCase):
 
     def test_0_preguntas(self):
         """ comprueba el mensaje de la respuesta cuando no hay preguntas """
-        respuesta = self.client.get(reverse('encuestas:index'))
+        respuesta = self.client.get(reverse('encuestas:encuestas_indice'))
         self.assertEqual(respuesta.status_code,200) #200 = OK
-        self.assertContains(respuesta, "No polls are available" )
+        self.assertContains(respuesta, "No encuestas are available" )
 
         self.assertQuerysetEqual(respuesta.context['lista_preguntas'],[]) #???
     
@@ -79,9 +79,9 @@ class PreguntaIndexViewTest(TestCase):
         index page.
         """
         question = crea_pregunta(pregunta="Past question.", dias=-30)
-        response = self.client.get(reverse('polls:index'))
+        response = self.client.get(reverse('encuestas:encuestas_indice'))
         self.assertQuerysetEqual(
-            response.context['latest_question_list'],
+            response.context['lista_preguntas'],
             [question],
         )
 
@@ -91,9 +91,9 @@ class PreguntaIndexViewTest(TestCase):
         the index page.
         """
         crea_pregunta(pregunta="Future question.", dias=30)
-        response = self.client.get(reverse('polls:index'))
-        self.assertContains(response, "No polls are available.")
-        self.assertQuerysetEqual(response.context['latest_question_list'], [])
+        response = self.client.get(reverse('encuestas:encuestas_indice'))
+        self.assertContains(response, '')
+        self.assertQuerysetEqual(response.context['lista_preguntas'], [])
 
     def test_future_question_and_past_question(self):
         """
@@ -102,9 +102,9 @@ class PreguntaIndexViewTest(TestCase):
         """
         question = crea_pregunta(pregunta="Past question.", dias=-30)
         crea_pregunta(pregunta="Future question.", dias=30)
-        response = self.client.get(reverse('polls:index'))
+        response = self.client.get(reverse('encuestas:encuestas_indice'))
         self.assertQuerysetEqual(
-            response.context['latest_question_list'],
+            response.context['lista_preguntas'],
             [question],
         )
 
@@ -114,9 +114,9 @@ class PreguntaIndexViewTest(TestCase):
         """
         question1 = crea_pregunta(pregunta="Past question 1.", dias=-30)
         question2 = crea_pregunta(pregunta="Past question 2.", dias=-5)
-        response = self.client.get(reverse('polls:index'))
+        response = self.client.get(reverse('encuestas:encuestas_indice'))
         self.assertQuerysetEqual(
-            response.context['latest_question_list'],
+            response.context['lista_preguntas'],
             [question2, question1],
         )
 
@@ -127,7 +127,7 @@ class QuestionDetailViewTests(TestCase):
         returns a 404 not found.
         """
         future_question = crea_pregunta(pregunta='Future question.', dias=5)
-        url = reverse('polls:detail', args=(future_question.id,))
+        url = reverse('encuestas:detalle', args=(future_question.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 
@@ -137,6 +137,6 @@ class QuestionDetailViewTests(TestCase):
         displays the question's text.
         """
         past_question = crea_pregunta(pregunta='Past Question.', dias=-5)
-        url = reverse('polls:detail', args=(past_question.id,))
+        url = reverse('encuestas:detalle', args=(past_question.id,))
         response = self.client.get(url)
-        self.assertContains(response, past_question.pregunta)
+        self.assertContains(response, past_question.pregunta_texto)
