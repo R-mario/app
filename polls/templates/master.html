@@ -12,27 +12,27 @@
   <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 </head>
 <body>
-    <header>
+    <header> 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <a class="navbar-brand" href="/">Proyecto Django</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" 
+          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'encuestas' %}">Encuestas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="{% url 'creatures' %}">Creatures</a>
+                <a class="nav-link disabled" href="{% url 'criaturas' %}">Creatures</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'main' %}">main</a>
+                <a class="nav-link" href="{% url 'miembros' %}">Miembros</a>
               </li>
             </ul>
           </div>
-        </nav>
+        </nav> 
       </header>
 
     <div class="content">
@@ -41,10 +41,10 @@
         <div id="back" class = "container">
             <a type="button" href = "/" class ="btn btn-info">Volver a Inicio</a>
         </div>
-    </div>
-    
-    <footer>
-        pie de página
-    </footer>
+      </div>
+      
+      <footer>
+          Hecho por mi.
+      </footer>
 </body>
 </html>

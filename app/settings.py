@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'encuestas.apps.EncuestasConfig',
     'members',
     'polls',
-    'creatures'
+    'creatures',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [

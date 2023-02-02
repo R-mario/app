@@ -7,7 +7,7 @@ from encuestas.views import IndexView
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('miembros/', main, name ='main'),
-    path('creatures/',organism_list, name = 'creatures'),
+    path('miembros/', main, name ='miembros'),
+    path('creatures/',organism_list, name = 'criaturas'),
     path('encuestas/',IndexView.as_view(), name = 'encuestas')
 ]

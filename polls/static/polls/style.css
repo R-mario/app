@@ -2,10 +2,13 @@
 body {
   background-color: #282929e5;
   color: #fcfcfc;
+  display: flex;
+  flex-direction: column; 
 }
 .content{
   max-width: 500px;
   margin: auto;
+  width: 50%;
 }
 .container {
   text-align: center;
@@ -28,5 +31,6 @@ h1{
 }
 footer{
   border-top-style: solid;
+  margin-top: auto;
   border-top-width: 1px;
 }

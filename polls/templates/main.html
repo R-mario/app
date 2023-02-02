@@ -3,11 +3,31 @@
 {% block title %} Proyecto Django {% endblock %}
 
 {% block content %}
-    <div class="btn-group-vertical">
-      <h1>Proyecto Django</h1>
-      <a href="miembros/" class="btn btn-primary">Miembros</a>
-      <a href="creatures/" class="btn btn-primary">Criaturas</a>
-      <a href="encuestas/" class="btn btn-primary">Encuestas</a>
-    </div>
+      <h1>Página principal</h1>
+
+      <div class="row">
+        <div class="col">
+          <p>Gestionar los miembros y añadir o eliminarlos</p>
+        </div>   
+        <div class="col">
+          <p>Gestionar un catálogo de seres vivos</p>
+        </div>
+        <div class="col">
+          <p>Permite votar en diferentes encuestas</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <a href="{% url 'miembros' %}" class="btn btn-primary">Miembros</a>
+        </div> 
+        <div class="col">
+          <a href="{% url 'criaturas' %}" class="btn btn-primary">Criaturas</a>
+        </div>
+        <div class="col">
+          <a href="{% url 'encuestas' %}" class="btn btn-primary ">Encuestas</a>
+        </div>
+      </div>
+      
 
 {% endblock %}

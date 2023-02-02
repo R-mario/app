@@ -75,8 +75,8 @@ class PreguntaIndexViewTest(TestCase):
     
     def test_pregunta_pasada(self):
         """
-        Questions with a pub_date in the past are displayed on the
-        index page.
+        Preguntas con fecha_pub en el pasado se muestran en la página
+        index.
         """
         question = crea_pregunta(pregunta="Past question.", dias=-30)
         response = self.client.get(reverse('encuestas:encuestas_indice'))
@@ -85,17 +85,17 @@ class PreguntaIndexViewTest(TestCase):
             [question],
         )
 
-    def test_future_question(self):
+    def test_pregunta_futura(self):
         """
-        Questions with a pub_date in the future aren't displayed on
-        the index page.
+        Preguntas con fecha_pub en el futuro no se muestran en la página
+        index.
         """
         crea_pregunta(pregunta="Future question.", dias=30)
         response = self.client.get(reverse('encuestas:encuestas_indice'))
         self.assertContains(response, '')
         self.assertQuerysetEqual(response.context['lista_preguntas'], [])
 
-    def test_future_question_and_past_question(self):
+    def test_pregunta_futura_y_pasada(self):
         """
         Even if both past and future questions exist, only past questions
         are displayed.
@@ -108,7 +108,7 @@ class PreguntaIndexViewTest(TestCase):
             [question],
         )
 
-    def test_two_past_questions(self):
+    def test_dos_pasadas(self):
         """
         The questions index page may display multiple questions.
         """
@@ -121,7 +121,7 @@ class PreguntaIndexViewTest(TestCase):
         )
 
 class QuestionDetailViewTests(TestCase):
-    def test_future_question(self):
+    def test_error_detalle_futura(self):
         """
         The detail view of a question with a pub_date in the future
         returns a 404 not found.
@@ -131,7 +131,7 @@ class QuestionDetailViewTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 
-    def test_past_question(self):
+    def test_detalle_pasada(self):
         """
         The detail view of a question with a pub_date in the past
         displays the question's text.
@@ -139,4 +139,4 @@ class QuestionDetailViewTests(TestCase):
         past_question = crea_pregunta(pregunta='Past Question.', dias=-5)
         url = reverse('encuestas:detalle', args=(past_question.id,))
         response = self.client.get(url)
-        self.assertContains(response, past_question.pregunta_texto)
+        self.assertContains(response.context,past_question.pregunta_texto)
